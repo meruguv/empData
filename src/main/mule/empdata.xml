@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d29ce685-f394-4e80-ba84-d37e4cc5e80e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="empdataFlow" doc:id="e1a1b715-3190-45f6-a423-5c0fbe54b695" >
+		<http:listener doc:name="Listener" doc:id="fc2ab74c-5df7-49d1-90ec-a18e69e24825" config-ref="HTTP_Listener_config" path="/empData"/>
+		<logger level="INFO" doc:name="Logger" doc:id="eec6cdc2-3308-4612-bc21-55e921a8dba7" />
+	</flow>
+</mule>
